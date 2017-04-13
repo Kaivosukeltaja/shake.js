@@ -69,14 +69,14 @@
     Shake.prototype.start = function () {
         this.reset();
         if (this.hasDeviceMotion) {
-            window.addEventListener('devicemotion', this, false);
+            window.addEventListener('devicemotion', this.devicemotion.bind(this), false);
         }
     };
 
     //stop listening for devicemotion
     Shake.prototype.stop = function () {
         if (this.hasDeviceMotion) {
-            window.removeEventListener('devicemotion', this, false);
+            window.removeEventListener('devicemotion', this.devicemotion.bind(this), false);
         }
         this.reset();
     };
